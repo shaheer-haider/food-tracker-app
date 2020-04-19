@@ -1,0 +1,22 @@
+<!-- Bootstrap core CSS -->
+<link href='{{ url_for("static", filename = "bootstrap.min.css") }}' rel="stylesheet">
+<!-- Custom styles for this template -->
+<link href='{{ url_for("static", filename = "theme.css") }}' rel="stylesheet">
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" style="background-color: black; color: white;" href="/view">Food Tracker</a>
+        </div>
+
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/">Home</a></li>
+                <li><a href="/the_food">Add Food Item</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+{% block content %}
+{% endblock %}

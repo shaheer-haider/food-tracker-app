@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+{% extends 'layout.html' %}
+{% block content %}
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Food Tracker | Day Details</title>
+
+  </head>
+
+  <body>
+
+
+
+    <div class="container theme-showcase col-sm-6 col-sm-offset-3" role="main">
+
+      <div class="row">
+        <div>
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">{{ pretty_date }}</h3>
+            </div>
+
+            <div class="panel-body">
+
+              <form method="POST" action="">
+                <div class="form-group">
+                  <select class="form-control" name="food_select" style="font-size: 18px;">
+                    {% for food in food_id_name %}
+                    <option selected=1 value={{ food.id }}>
+                      {{ food.name }}
+                    </option>
+                    {% endfor %}
+                  </select>
+                </div>
+
+                <br>
+                <button type="submit" class="btn btn-primary">Add</button>
+
+              </form>
+              <div class="page-header"></div>
+
+              <ul class="nav nav-pills" role="tablist">
+                <li class="active"><a>Total</a></li>
+                <li><a>Protein: <span class="badge">{{ sum_protein }}</span></a></li>
+                <li><a>Carbohydrates: <span class="badge">{{ sum_carbohydrates }}</span></a></li>
+                <li><a>Fat: <span class="badge">{{ sum_fats }}</span></a></li>
+                <li><a>Calories: <span class="badge">{{ sum_calories }}</span></a></li>
+              </ul>
+
+              </div>
+
+
+
+
+              <div class="page-header"></div>
+
+
+            <div class="panel-body">
+
+
+              {% for food_detail in food_details %}
+              <ul class="nav nav-pills" role="tablist">
+                <li class="active"><a>{{ food_detail['name'] }}</a></li>
+                <li><a>Protein: <span class="badge">{{ food_detail['protein'] }}</span></a></li>
+                <li><a>Carbohydrates: <span class="badge">{{ food_detail['carbohydrates'] }}</span></a></li>
+                <li><a>Fat: <span class="badge">{{ food_detail['fats'] }}</span></a></li>
+                <li><a>Calories: <span class="badge">{{ food_detail['calories'] }}</span></a></li>
+              </ul>
+              <div class="page-header"></div>
+
+              {% endfor %}
+
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+  </body>
+{% endblock %}
+
+</html>
